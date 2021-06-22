@@ -44,14 +44,14 @@ public class SauceDemoTest {
 // 4.Поиск по tagname.
         WebElement byTagName = driver.findElement(By.tagName("style"));
 //.............................................................
-        driver.findElement(By.id("back-to-products")).click();
+        driver.findElement(By.id("react-burger-menu-btn")).click();
 //...............................................................
 
 // 5. Поиск по linktext.
-       //WebElement ByLinkText = driver.findElement(By.linkText("About")); //  не находит
+       WebElement ByLinkText = driver.findElement(By.linkText("ABOUT")); //  не находит
 
 // 6. Поиск по partiallinktext.
-       // WebElement ByPartialLinkText = driver.findElement(By.linkText("State"));// не находит
+        WebElement ByPartialLinkText = driver.findElement(By.partialLinkText("STATE"));// не находит
         Thread.sleep(3000);
 //        xpath
 //        Поиск по атрибуту, например By.xpath("//tag[@attribute='value']");
