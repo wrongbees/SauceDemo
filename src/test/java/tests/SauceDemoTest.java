@@ -24,52 +24,75 @@ public class SauceDemoTest {
         driver.get("https://www.saucedemo.com/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-// 1. Поиск по ID.
+// 1.1 Поиск по ID.
         WebElement byID = driver.findElement(By.id("user-name"));
 
-//2.  Поиск по name.
+// 1.2  Поиск по name.
         WebElement byName = driver.findElement(By.name("password"));
         //....................................................
         byID.sendKeys("standard_user" + Keys.ENTER);
         byName.sendKeys("secret_sauce" + Keys.ENTER);
         ///......................................................
 
-//3. Поиск по classname.
+// 1.3 Поиск по classname.
         WebElement byClassName = driver.findElement(By.className("submit-button"));
 //.........................................................
         byClassName.click();                                             //
         driver.findElement(By.cssSelector("[id ='item_1_title_link'] div")).click(); //движемся по странице.
 //.........................................................
 
-// 4.Поиск по tagname.
+// 1.4 Поиск по tagname.
         WebElement byTagName = driver.findElement(By.tagName("style"));
 //.............................................................
         driver.findElement(By.id("react-burger-menu-btn")).click();
 //...............................................................
 
-// 5. Поиск по linktext.
+// 1.5 Поиск по linktext.
         WebElement ByLinkText = driver.findElement(By.linkText("ABOUT"));
 //..................................................................
-// 6. Поиск по partiallinktext.
+// 1.6 Поиск по partiallinktext.
         WebElement ByPartialLinkText = driver.findElement(By.partialLinkText("STATE"));
 //.............................................................................
         driver.findElement(By.id("react-burger-cross-btn")).click();
         driver.findElement(By.id("back-to-products")).click();
-        //Thread.sleep(3000);
+//......................................................................
 //      2.  xpath
 //      2.1  Поиск по атрибуту, например By.xpath("//tag[@attribute='value']");
+        WebElement byAttributeXPath = driver.findElement(By.xpath("//*[@class = 'primary_header']"));
+//.............................................................................................
+//
+//      2.2  Поиск по тексту, например By.xpath("//tag[text()='text']");
+        WebElement byTextXPath = driver.findElement(By.xpath("//noscript[text() = 'You need to enable JavaScript to run this app.']"));
+//..................................................................................
 
+//      2.3  Поиск по частичному совпадению атрибута, например By.xpath("//tag[contains(@attribute,'text')]");
+        WebElement byContainsTextAttributeXPath = driver.findElement(By.xpath("//div[contains(@class, 'header_secondary')]"));
+//...........................................................................................................
 
-//        Поиск по тексту, например By.xpath("//tag[text()='text']");
-//        Поиск по частичному совпадению атрибута, например By.xpath("//tag[contains(@attribute,'text')]");
-//        Поиск по частичному совпадению текста, например By.xpath("//tag[contains(text(),'text')]");
-//        ancestor, например //*[text()='Enterprise Testing']//ancestor::div
-//        descendant
-//                following
-//        parent
-//                preceding
+//      2.4  Поиск по частичному совпадению текста, например By.xpath("//tag[contains(text(),'text')]");
+        WebElement byContainsText = driver.findElement(By.xpath("//*[contains(text(), 'JavaScript')]"));
+//................................................................................
+
+//       2.5 Поиск по ancestor, например //*[text()='Enterprise Testing']//ancestor::div
+        WebElement byAncestorXPath = driver.findElement(By.xpath("//*[@class = 'social']//ancestor :: footer"));
+//.......................................................................................
+
+//       2.6 Поиск по descendant
+
+//....................................................................................
+
+//       2.7 Поиск по following
+//........................................................................
+
+//       2.8 Поиск по parent
+//....................................................................
+//       2.9 Поиск по preceding
+//.................................................................
 //        Подсказка:  XPath Axes
 //*поиск элемента с условием AND, например //input[@class='_2zrpKA _1dBPDZ' and @type='text']
+        WebElement byСonjunctionXPath = driver.findElement(By.xpath("//*[contains(@class, 'bm-menu-w') and contains(@style, '100%')]"));
+//...............................................................................
+
 //  3.       css
 //  3.1    Поиск по одному классу .class
         WebElement byClass = driver.findElement(By.cssSelector(".page_wrapper"));
