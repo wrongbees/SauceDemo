@@ -43,6 +43,7 @@ public class SauceDemoTest {
 
 // 1.4 Поиск по tagname.
         WebElement byTagName = driver.findElement(By.tagName("style"));
+        System.out.println(driver.findElements(By.tagName("style")).size());
 //.............................................................
         driver.findElement(By.id("react-burger-menu-btn")).click();
 //...............................................................
@@ -78,18 +79,21 @@ public class SauceDemoTest {
 //.......................................................................................
 
 //       2.6 Поиск по descendant
-
+        WebElement byDescendantXPath = driver.findElement(By.xpath("//*[@class='primary_header']//descendant :: div"));
 //....................................................................................
 
 //       2.7 Поиск по following
+        WebElement byFollowingXPath = driver.findElement(By.xpath("//*[@class='header_label']//following:: div"));
 //........................................................................
 
 //       2.8 Поиск по parent
+        WebElement byParentXPath = driver.findElement(By.xpath("//*[@class='shopping_cart_container']//parent:: div"));
 //....................................................................
 //       2.9 Поиск по preceding
+        WebElement byPrecedingXPath = driver.findElement(By.xpath("//*[@id='contents_wrapper'] //preceding::noscript"));
 //.................................................................
-//        Подсказка:  XPath Axes
-//*поиск элемента с условием AND, например //input[@class='_2zrpKA _1dBPDZ' and @type='text']
+//
+//       2.10 Поиск элемента с условием AND, например //input[@class='_2zrpKA _1dBPDZ' and @type='text']
         WebElement byСonjunctionXPath = driver.findElement(By.xpath("//*[contains(@class, 'bm-menu-w') and contains(@style, '100%')]"));
 //...............................................................................
 
